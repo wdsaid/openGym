@@ -15,7 +15,7 @@
 
 ## 部署
 
-发布分支为 `codex/personal-pages`，工作流为 `.github/workflows/pages.yml`。
+发布分支为 `main`，开发分支为 `codex/personal-pages`，工作流为 `.github/workflows/pages.yml`。
 GitHub 仓库 Settings → Pages 的 Source 选择 GitHub Actions。
 构建使用 `VITE_PERSONAL=1`；沿用浏览器本地存储，不初始化演示记录，不展示模拟 AI 教练。
 Actions 会运行个人模式回归、构建前端、复制原项目的动作素材，再发布到 Pages。

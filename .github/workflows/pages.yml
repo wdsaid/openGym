@@ -4,7 +4,7 @@ name: Deploy personal openGym to GitHub Pages
 
 on:
   push:
-    branches: [codex/personal-pages]
+    branches: [main]
     paths:
       - 'frontend/**'
       - 'catalogue/**'

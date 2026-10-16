@@ -4,6 +4,7 @@ import { webauthnOK, passkeyLogin, passkeyRegister, passkeyError, bio } from '..
 import { hasData } from '../store/useStore.js'
 import { t } from '../lib/i18n.js'
 import { DEMO, REPO } from '../lib/demo.js'
+import { PERSONAL } from '../lib/personal.js'
 import { guestAllowed } from '../lib/guest.js'
 import { useState, useRef, useEffect } from 'react'
 import Icon from '../components/Icon.jsx'
@@ -80,6 +81,17 @@ export default function Login() {
     <h1 style={{ fontSize: 34, fontWeight: 700, letterSpacing: '-.028em', margin: '10px 0 4px' }}>openGym</h1>
   </>
   const wrap = { display: 'flex', flexDirection: 'column', justifyContent: 'center', minHeight: '78vh', textAlign: 'center' }
+
+  if (PERSONAL) return (
+    <div className="narrow" style={wrap}>
+      {head}
+      <div className="muted" style={{ marginBottom: 30 }}>{t('All data stays on this phone')}</div>
+      <Button variant="primary" icon="play" onClick={() => setGuest(true)}>{t('Continue without account')}</Button>
+      <div className="card small muted" style={{ textAlign: 'start', marginTop: 16 }}>
+        {t('No account, no cloud. Back it up anytime in Data & backup.')}
+      </div>
+    </div>
+  )
 
   // Demo build: no backend to sign in against — the only way in is the local guest profile.
   if (DEMO) return (
